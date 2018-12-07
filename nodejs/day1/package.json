@@ -1,0 +1,15 @@
+{
+  "name": "day1",
+  "version": "1.0.0",
+  "description": "day 1 challenge of advent of code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "advent_of_code",
+    "day_1"
+  ],
+  "author": "Emil Mattsson",
+  "license": "ISC"
+}
