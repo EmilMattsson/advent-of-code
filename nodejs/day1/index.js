@@ -10,20 +10,24 @@ function sumNumbers(input) {
     array.forEach(element => {
         numbers.push(parseInt(element));
     })
-    console.log(numbers.reduce((a, b) => a + b, 0));
+    // console.log(numbers.reduce((a, b) => a + b, 0));
 
     findFirstDuplicate(numbers);
 }
 
 function findFirstDuplicate(numbers) {
-    let i = 0;
-    let j = i + 1;
-    let tmp;
-    for (let k = 0; k < numbers.length; k++) {
-        console.log(numbers[i] + " " + numbers[j]);
-        i++;
-        if (i !== (numbers.length - 1)) {
-            j++;
-        }
+    let sums = [];
+    let sum = 0;
+    // sums.push(sum);
+    let noDuplicate = true;
+    while (noDuplicate) {
+        numbers.forEach(element => {
+            sum = sum + element;
+            if (sums.includes(sum)) {
+                console.log(sum);
+                noDuplicate = false;
+            }
+            sums.push(sum);
+        })
     }
 }

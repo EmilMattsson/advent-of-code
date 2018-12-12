@@ -11,5 +11,8 @@
     "day_1"
   ],
   "author": "Emil Mattsson",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.6.3"
+  }
 }
