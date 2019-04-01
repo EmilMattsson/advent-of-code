@@ -1,21 +1,30 @@
 let fs = require('fs');
 
-fs.readFile('./input_data/day_1.txt', 'utf8', function(err, contents) {
-    sumNumbers(contents);
+fs.readFile('../input_data/day_1.txt', 'utf8', function(err, contents) {
+    if (err) console.log(err.message)
+    let strings = splitDataIntoArrayOfStrings(contents)
+    let numbers = parseIntArrayOfStrings(strings)
+    console.log(sumNumbers(numbers))
+    console.log(findFirstDuplicateSum(numbers))
 });
 
 function sumNumbers(input) {
-    let array = input.split('\n');
-    let numbers = [];
-    array.forEach(element => {
-        numbers.push(parseInt(element));
-    })
-    // console.log(numbers.reduce((a, b) => a + b, 0));
-
-    findFirstDuplicate(numbers);
+    return input.reduce((a, b) => a + b, 0);
 }
 
-function findFirstDuplicate(numbers) {
+function splitDataIntoArrayOfStrings(input) {
+    return input.split('\n');
+}
+
+function parseIntArrayOfStrings(strings) {
+    let numbers = [];
+    strings.forEach(element => {
+        numbers.push(parseInt(element));
+    })
+    return numbers
+}
+
+function findFirstDuplicateSum(numbers) {
     let sums = [];
     let sum = 0;
     // sums.push(sum);
@@ -24,8 +33,8 @@ function findFirstDuplicate(numbers) {
         numbers.forEach(element => {
             sum = sum + element;
             if (sums.includes(sum)) {
-                console.log(sum);
                 noDuplicate = false;
+                return sum
             }
             sums.push(sum);
         })
